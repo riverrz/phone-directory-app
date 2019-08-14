@@ -1,15 +1,18 @@
-import React, {Fragment} from "react";
+import React from "react";
+import Header from "./components/Header/Header";
 import "./App.css";
 
 function App() {
   return (
-    <Fragment>
-      <div>
-        <h1>Phone Directory App</h1>
+    <div>
+      <Header/>
+      <main>
         <h2>Directory List</h2>
-        <button>Delete</button>
-      </div>
-    </Fragment>
+      </main>
+      <footer>
+        Upgrad App
+      </footer>
+    </div>
   );
 }
 
