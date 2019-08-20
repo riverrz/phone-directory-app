@@ -11,7 +11,7 @@ class App extends Component {
     };
   }
   render() {
-    const mappedPhoneNo = this.state.phoneNoArray.map(function(p, i) {
+    const mappedPhoneNo = this.state.phoneNoArray.map((p, i) => {
       return (
         <li key={i}>
           {p}

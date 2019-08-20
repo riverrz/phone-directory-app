@@ -28,9 +28,7 @@ class AddSubscriber extends Component {
             className="AddSubscriber__input"
             onChange={this.onChangeHandler}
           />
-          <button className="AddSubscriber__btn">
-            Add
-          </button>
+          <button className="AddSubscriber__btn">Add</button>
         </form>
       </div>
     );
