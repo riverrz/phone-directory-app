@@ -1,0 +1,23 @@
+.AddSubscriber__container{
+    padding: 30px;
+    border: 2px solid #eee;
+}
+
+.AddSubscriber__input{
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    margin-right: 10px;
+    color: #222;
+    outline: none;
+    border-bottom: 1px solid #333;
+}
+
+.AddSubscriber__btn{
+    background-color: green;
+    color: #fff;
+    padding: 10px 20px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+}

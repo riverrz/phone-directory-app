@@ -1,12 +1,13 @@
 import React from "react";
 import "./Header.css";
 
-function Header() {
+function Header(props) {
   return (
-    <header>
-      <h1>Phone Directory App</h1>
+    <header className="Header__header">
+      <h1>{props.title}</h1>
     </header>
   );
 }
+
 
 export default Header;
