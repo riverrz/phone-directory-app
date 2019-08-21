@@ -10,6 +10,7 @@ class AddSubscriber extends Component {
   }
   onChangeHandler = event => {
     const p = event.target.value;
+    // this.state.phoneNo = p   NEVER DO THIS
     console.log(p);
     this.setState({
       phoneNo: p
@@ -17,6 +18,7 @@ class AddSubscriber extends Component {
   };
   onSubmitHandler = event => {
     event.preventDefault();
+    this.props.addPhoneNo(this.state.phoneNo);
   };
   render() {
     return (
