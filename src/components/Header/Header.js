@@ -1,11 +1,19 @@
 import React from "react";
 import "./Header.css";
 
+import ThemeContext from "../../contexts/ThemeContext";
+
 function Header(props) {
   return (
-    <header className="Header__header">
-      <h1>{props.title}</h1>
-    </header>
+    <ThemeContext.Consumer>
+      {themeValue => {
+        return (
+          <header className="Header__header">
+            <h1>{themeValue}</h1>
+          </header>
+        );
+      }}
+    </ThemeContext.Consumer>
   );
 }
 

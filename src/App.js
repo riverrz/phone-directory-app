@@ -5,11 +5,14 @@ import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
 import PhoneList from "./components/PhoneList/PhoneList";
 
+import ThemeContext from "./contexts/ThemeContext";
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phoneNoArray: []
+      phoneNoArray: [123, 456, 789],
+      theme: "dark"
     };
   }
   addPhoneNo = phoneNo => {
@@ -20,21 +23,33 @@ class App extends Component {
       phoneNoArray: newPhoneNoArray
     });
   };
+  deletePhoneNo = indexToDelete => {
+    const newPhoneNoArray = this.state.phoneNoArray.filter((value, index) => {
+      if (index !== indexToDelete) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    this.setState({
+      phoneNoArray: newPhoneNoArray
+    });
+  };
   componentWillMount() {
     console.log("Will Mount App.js");
   }
   componentDidMount() {
     console.log("Did Mount App.js");
-    fetch("http://localhost:5000/phone-numbers", {
-      method: "GET"
-    })
-      .then(res => res.json())
-      .then(data => {
-        const arr = data.phoneNoArray;
-        this.setState({
-          phoneNoArray: arr
-        });
-      });
+    // fetch("http://localhost:5000/phone-numbers", {
+    //   method: "GET"
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     const arr = data.phoneNoArray;
+    //     this.setState({
+    //       phoneNoArray: arr
+    //     });
+    //   });
   }
   componentWillUpdate() {
     console.log("Will Update App.js");
@@ -45,7 +60,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header title="Phone Directory App" />
+        <ThemeContext.Provider value={this.state.theme}>
+          <Header title="Phone Directory App" />
+        </ThemeContext.Provider>
         <Switch>
           <Route
             path="/add-subscriber"
@@ -54,7 +71,7 @@ class App extends Component {
           />
           <Route
             path="/"
-            render={() => <PhoneList phoneArray={this.state.phoneNoArray} />}
+            render={() => <PhoneList phoneArray={this.state.phoneNoArray} deletePhoneNo={this.deletePhoneNo}/>}
           />
         </Switch>
         {/* <AddSubscriber addPhoneNo={this.addPhoneNo} /> */}

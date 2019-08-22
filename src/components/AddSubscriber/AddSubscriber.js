@@ -11,6 +11,10 @@ class AddSubscriber extends Component {
   }
   onChangeHandler = event => {
     const p = event.target.value;
+    // setTimeout(() => {
+    //   // event  NOT AVAIALABLE
+    //   // use the p variable instead of directly using event.target.value
+    // }, 1000);
     // this.state.phoneNo = p   NEVER DO THIS
     console.log(p);
     this.setState({
