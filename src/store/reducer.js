@@ -2,7 +2,6 @@ const initialState = {
   secretVal: "Some Secret Value",
   toShow: false
 };
-
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "Toggle":
@@ -15,5 +14,6 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
 
 export default reducer;

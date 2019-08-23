@@ -27,7 +27,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ReduxExample);
+export default connect(mapStateToProps,mapDispatchToProps)(ReduxExample);
