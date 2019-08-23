@@ -4,6 +4,7 @@ import AddSubscriber from "./components/AddSubscriber/AddSubscriber";
 import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
 import PhoneList from "./components/PhoneList/PhoneList";
+import ReduxExample from "./components/ReduxExample/ReduxExample";
 
 // import ThemeContext from "./contexts/ThemeContext";
 
@@ -61,11 +62,14 @@ class App extends Component {
     return (
       <div>
         {/* <ThemeContext.Provider value={this.state.theme}> */}
-          <Header title="Phone Directory App" />
+        <Header title="Phone Directory App" />
         {/* </ThemeContext.Provider> */}
         <Link to="/add-subscriber">Go to Add Subscriber Page</Link>
         <p>
           <Link to="/">Go to Phone List</Link>
+        </p>
+        <p>
+          <Link to="/redux-example">Go to Redux Example</Link>
         </p>
         <Switch>
           <Route
@@ -75,6 +79,7 @@ class App extends Component {
           />
           <Route
             path="/"
+            exact
             render={() => (
               <PhoneList
                 phoneArray={this.state.phoneNoArray}
@@ -82,6 +87,7 @@ class App extends Component {
               />
             )}
           />
+          <Route to="/redux-example" exact component={ReduxExample} />
         </Switch>
         {/* <AddSubscriber addPhoneNo={this.addPhoneNo} /> */}
 
