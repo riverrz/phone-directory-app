@@ -1,5 +1,5 @@
 const initialState = {
-  secretVal: "ABC",
+  secretVal: "Some Secret Value",
   toShow: false
 };
 

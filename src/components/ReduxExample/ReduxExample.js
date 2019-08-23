@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 const ReduxExample = props => {
   let content = null;
-  console.log(props.toShow);
   if (props.toShow) {
     content = props.secretVal;
   }
