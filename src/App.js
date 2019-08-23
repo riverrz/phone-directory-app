@@ -5,7 +5,7 @@ import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
 import PhoneList from "./components/PhoneList/PhoneList";
 
-import ThemeContext from "./contexts/ThemeContext";
+// import ThemeContext from "./contexts/ThemeContext";
 
 class App extends Component {
   constructor(props) {
@@ -60,9 +60,13 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ThemeContext.Provider value={this.state.theme}>
+        {/* <ThemeContext.Provider value={this.state.theme}> */}
           <Header title="Phone Directory App" />
-        </ThemeContext.Provider>
+        {/* </ThemeContext.Provider> */}
+        <Link to="/add-subscriber">Go to Add Subscriber Page</Link>
+        <p>
+          <Link to="/">Go to Phone List</Link>
+        </p>
         <Switch>
           <Route
             path="/add-subscriber"
@@ -71,14 +75,16 @@ class App extends Component {
           />
           <Route
             path="/"
-            render={() => <PhoneList phoneArray={this.state.phoneNoArray} deletePhoneNo={this.deletePhoneNo}/>}
+            render={() => (
+              <PhoneList
+                phoneArray={this.state.phoneNoArray}
+                deletePhoneNo={this.deletePhoneNo}
+              />
+            )}
           />
         </Switch>
         {/* <AddSubscriber addPhoneNo={this.addPhoneNo} /> */}
-        <Link to="/add-subscriber">Go to Add Subscriber Page</Link>
-        <p>
-          <Link to="/">Go to Phone List</Link>
-        </p>
+
         {/* <main>
           <PhoneList phoneArray={this.state.phoneNoArray} />
         </main> */}
